@@ -8,25 +8,15 @@
 </head>
 
 <body>
-  <div class="headerbox">
-      <h1 class="list-header">
-          TODO LIST
-      </h1>
-  </div>
-
-  <div class="centerbox">
-    <div class="content">
-      <form id="todo-add-form" class="new-todo">
-        <input id="todo-add-input" class="input" type="text" placeholder="Add stuff to Todo list"/>
-        <button id="todo-add-button" type="submit" class="addButton">
-          +
-        </button>
-
-        <button id="todo-delete-button" type="delete" class="deleteButton">
-          Delete selected items
-        </button>
+  <div id="page">
+    <div id="content"> 
+      <form id="todo-form"> 
+        <input id="todo-form-textfield">
+        <button id="todo-form-add-button" type="submit"> + </button>
       </form>
-      <ul id="todo-list" class="todo-list"></ul>
+      <ul id="todo-list">
+        <button id="todo-form-delete-buttion" type="delete"> delete </button>
+      </ul>
     </div>
   </div>
 </body>

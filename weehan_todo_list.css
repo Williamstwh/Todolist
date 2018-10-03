@@ -1,111 +1,38 @@
 body {
-    background-image: url(images/moutains.jpeg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
-
-.headerbox {
-    align-items: center;
-}
-
-.headerbox > .list-header {
-    color: #222222; 
-    font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 100px; 
-    font-weight: bold; 
-    letter-spacing: 10px; 
-    line-height: 1; 
-    text-align: center;
-    opacity: 
-}
-
-ul {
-    list-style: none;
-}
-
-.centerbox {
-    width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.content {
+#page {
+    background-color: lightblue;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;    /*align vertically*/
+    justify-content: center; /*align horizontally*/
+}
+
+#content {
     width: 400px;
     min-height: 300px;
-    background: #ffffff;
-    opacity: 0.90;
-    border: #CED9E0 1px solid;
-    border-radius: 6px;
-    margin: 24px;
-    padding: 16px;
+    background-color: rgb(184, 184, 204);
+    margin: 10%;
+    border: green 2px solid;
+    border-radius: 10px;
+    padding: 20px;
 }
 
-.new-todo {
+#form {
     display: flex;
     flex-direction: row;
 }
 
-.new-todo > .input {
+#todo-form-textfield {
+    background-color: lightgoldenrodyellow;
     flex-grow: 1;
-    border: #CED9E0 1px solid;
-    border-radius: 4px;
     margin-right: 8px;
-    padding: 4px 8px;
-    height: 26px;
 }
 
-.new-todo > .input:active,
-.new-todo > .input:focus {
-  outline: none;
-  border-color: #137CBD;
-}
-
-.new-todo > .addButton {
+#todo-form-add-button {
     flex-grow: 0;
-    background: #137CBD;
-    color: white;
-    border: #0E5A8A 1px solid;
-    border-radius: 4px;
-    padding: 4px 12px;
-    height: 36px;
-    line-height: 1.5;
-  
-    cursor: pointer;
 }
 
-.new-todo > .deleteButton {
-    margin-bottom: 5px;
-}
-
-.content > * {
-    margin-bottom: 16px;
-  }
-  
-  .content > *:last-child {
-    margin-bottom: 0px;
-  }
-  
-  .todo-list {
-    list-style: none;
-    padding: 0px;
-  }
-  
-  .todo-list > * {
-    margin-bottom: 8px;
-  }
-  
-  .todo-list > *:last-child {
-    margin-bottom: 0px;
-  }
-  
-  .todo-list > * > input {
-    width: 20px;
-  }
-  
-  * {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-  }
-  

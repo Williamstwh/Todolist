@@ -1,37 +1,30 @@
-//Get the reference to all the elements we'll be needing
-const textfield = document.getElementById("todo-add-input");
-const form = document.getElementById("todo-add-form");
+const textfield = document.getElementById("todo-form-textfield");
+const form = document.getElementById("todo-form");
+const addButton = document.getElementById("todo-list-add-button");
 const list = document.getElementById("todo-list");
 
 const handleSubmit = event => {
     event.preventDefault();
 
-    //Create a <li>Random Content</li>
     const todoItem = document.createElement("li");
-
-    //Create checkbox <input type="checkbox">
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-
-    //Create span <span> todo item</span>
     const text = document.createElement("span");
     text.innerHTML = textfield.value;
-
-    //Adds todoItem into the todo list
     list.appendChild(todoItem);
-
-    // Adds the checkbox to the todoItem
     todoItem.appendChild(checkbox);
     todoItem.appendChild(text);
+    textfield.value = '';
 
-    //Empty the textfield
-    textfield.value = "";
-};
+}
+
 
 form.addEventListener("submit", handleSubmit);
 
 const handleDelete = event => {
-    event.preventDefault();
+    event.preventDefault;
+
+    list[0].remove();
 }
 
-form.addEventListener("delete", handleDelete);
+list.addEventListener("delete", handleDelete);
