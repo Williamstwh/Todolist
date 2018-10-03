@@ -11,6 +11,11 @@ table {
     min-width: 300px;
 }
 
+table > * {
+    font: helvetica;
+    font-size: 20;
+}
+
 th, td {
     text-align: left;
     min-width: 50px;
@@ -26,17 +31,18 @@ th, td {
 
 #headerbox {
     width: 100%;
-    background-color:red;
+    height: 200px;
 }
 
 #header { 
-    color: #111; 
+    color: #222; 
     font-family: 'Helvetica Neue', sans-serif; 
     font-size: 150px; 
     font-weight: bold; 
-    letter-spacing: -1px; 
+    letter-spacing: 5px; 
     line-height: 1; 
     text-align: center; 
+    text-shadow: -4px 4px 10px gray;
 }
 
 #content {
@@ -44,8 +50,8 @@ th, td {
     width: 600px;
     min-height: 300px;
     background-color: white;
-    opacity: 0.90;
-    margin: 10px;
+    opacity: 0.95;
+    margin: 0px;
     border-color: gainsboro;
     border-radius: 10px;
     padding: 20px;
@@ -57,12 +63,24 @@ th, td {
 }
 
 #todo-form-textfield {
-    background-color: lightgoldenrodyellow;
     flex-grow: 1;
+    border: #CED9E0 1px solid;
+    border-radius: 4px;
     margin-right: 8px;
+    padding: 4px 8px;
+    height: 26px;
 }
 
 #todo-form-add-button {
     flex-grow: 0;
+    background: #137CBD;
+    color: white;
+    border: #0E5A8A 1px solid;
+    border-radius: 4px;
+    padding: 4px 12px;
+    height: 36px;
+    line-height: 1.5;
+  
+    cursor: pointer;
 }
 
