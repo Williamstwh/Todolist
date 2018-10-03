@@ -4,16 +4,26 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title>Click counter</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="weehan_todo_list.css">
 </head>
 
 <body>
+  <div class="headerbox">
+      <h1 class="list-header">
+          TODO LIST
+      </h1>
+  </div>
+
   <div class="centerbox">
     <div class="content">
       <form id="todo-add-form" class="new-todo">
-        <input id="todo-add-input" class="input" type="text" placeholder="What needs to be done?">
-        <button id="todo-add-button" type="submit" class="button">
+        <input id="todo-add-input" class="input" type="text" placeholder="Add stuff to Todo list"/>
+        <button id="todo-add-button" type="submit" class="addButton">
           +
+        </button>
+
+        <button id="todo-delete-button" type="delete" class="deleteButton">
+          Delete selected items
         </button>
       </form>
       <ul id="todo-list" class="todo-list"></ul>
@@ -22,6 +32,6 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="script.js"></script>
+<script src="weehan_todo_list.js"></script>
 
 </html>
