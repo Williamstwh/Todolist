@@ -26,8 +26,8 @@ const one_to_ten_array = ["01", "02", "03", "04", "05", "06", "07", "08", "09", 
 const daysArray = one_to_ten_array.concat(enum_array(11, 31));
 const monthsArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 const yearsArray = enum_array(2018, 2100);
-const hoursArray = one_to_ten_array.concat(enum_array(11, 23));
-const minsArray = one_to_ten_array.concat(enum_array(11, 60));
+const hoursArray = ["00"].concat(one_to_ten_array.concat(enum_array(11, 23)));
+const minsArray = ["00"].concat(one_to_ten_array.concat(enum_array(11, 59)));
 enumerate_options(daySelect, daysArray);
 enumerate_options(monthSelect, monthsArray);
 enumerate_options(yearSelect, yearsArray);
@@ -48,6 +48,9 @@ const handleSubmit = event => {
         monthSelect.selectedIndex === 0 || 
         yearSelect.selectedIndex === 0) {
         alert("you have not entered the date!");
+    } else if (hourSelect.selectedIndex === 0 ||
+               minSelect.selectedIndex === 0) {
+        alert("you have not entered the date and time")
     } else {
         //create table row
         const todoItem = document.createElement("tr");
@@ -58,14 +61,14 @@ const handleSubmit = event => {
 
         //Create due date
         const dueDate = document.createElement("td");
-        dueDate.innerHTML = daysArray[daySelect.selectedIndex - 1] + '/' +
-                            monthsArray[monthSelect.selectedIndex - 1] + '/' +
+        dueDate.innerHTML = daysArray[daySelect.selectedIndex - 1] + ' ' +
+                            monthsArray[monthSelect.selectedIndex - 1] + ' ' +
                             yearsArray[yearSelect.selectedIndex - 1];  
 
         //Create due time
         const dueTime = document.createElement("td");
         dueTime.innerHTML = hoursArray[hourSelect.selectedIndex - 1] + ':' +
-                            minsArray[minSelect.selectedIndex - 1];
+                            minsArray[minSelect.selectedIndex - 1] + ' hrs';
 
         //create checkbox
         const col3 = document.createElement("td");

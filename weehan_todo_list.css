@@ -2,30 +2,27 @@ body {
     height: 100%;
     width: 100%;
     background-image: url("images/moutains.jpeg");
-    background-color: lightblue;
+    background-color: #137CBD;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 table {
-    min-width: 300px;
+    min-width: 500px;
 }
 
-table > * {
-    font: helvetica;
+.due, table > * {
+    font-family: helvetica;
     font-size: 20;
-}
-
-th, td {
+    min-width: 100px;
     text-align: left;
-    min-width: 50px;
 }
 
 #page {
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;    /*align vertically*/
+    align-items: flex-art;    /*align vertically*/
     justify-content: center; /*align horizontally*/
 }
 
@@ -37,7 +34,8 @@ th, td {
 #header { 
     color: #222; 
     font-family: 'Helvetica Neue', sans-serif; 
-    font-size: 150px; 
+    font-size: 150px;
+    font-size: 10vw;
     font-weight: bold; 
     letter-spacing: 5px; 
     line-height: 1; 
@@ -46,12 +44,11 @@ th, td {
 }
 
 #content {
-    position: relative;
     width: 600px;
     min-height: 300px;
     background-color: white;
     opacity: 0.95;
-    margin: 0px;
+    margin-top: 0;
     border-color: gainsboro;
     border-radius: 10px;
     padding: 20px;
@@ -64,6 +61,7 @@ th, td {
 
 #todo-form-textfield {
     flex-grow: 1;
+    width: 530px;
     border: #CED9E0 1px solid;
     border-radius: 4px;
     margin-right: 8px;
@@ -84,3 +82,14 @@ th, td {
     cursor: pointer;
 }
 
+#todo-list-delete-button {
+    margin-bottom: 5px;
+    margin-right: 5px;
+    background: lightcoral
+    border: darkred 2px solid;
+    color:black;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}

@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Click counter</title>
+  <title>Todo List (Wee Han)</title>
   <link rel="stylesheet" type="text/css" href="weehan_todo_list.css">
 </head>
 
@@ -16,12 +16,15 @@
   <div id="page">
     <div id="content"> 
       <form id="todo-form"> 
-        <input id="todo-form-textfield">
+        <input id="todo-form-textfield" placeholder="What needs to be done?">
         <button id="todo-form-add-button" type="click"> 
             + 
         </button>
         <br/> <br/> 
-        <span> due date: </span>
+
+        <span class="due"> 
+          due date: 
+        </span>
 
         <select id="day">
             <option> dd </option>
@@ -32,7 +35,11 @@
           <select id="year">
             <option> yyyy </option>
           </select>
-          <span> time: </span>
+          <br/>
+          <span class="due"> 
+            due time: 
+          </span>
+
           <select id="hour">
             <option> hr </option>
           </select>
@@ -50,7 +57,10 @@
           <th>Select</th>
         </tr>
       </table>
-      <button id="todo-list-delete-button" type="click"> delete </button>
+      <br/>
+      <button id="todo-list-delete-button" type="click"> 
+        delete selected items
+      </button>
     </div>
   </div>
 </body>
