@@ -21,7 +21,6 @@
             + 
         </button>
         <br/> <br/> 
-
         <span class="due"> 
           due date: 
         </span>
@@ -47,19 +46,24 @@
             <option> min </option>
           </select>
 
-          <br/> <br>
+          <br/> <span id="error-message"> </span> <br>
       </form>
-      <table id="todo-table">
-        <tr>
-          <th>Todo item</th>
-          <th>Due Date</th>
-          <th>Due Time</th>
-          <th>Select</th>
-        </tr>
+      <table>
+        <tbody id="todo-table">
+          <tr>
+            <th>Todo item</th>
+            <th>Due Date</th>
+            <th>Due Time</th>
+            <th>Select</th>
+          </tr>
+        </tbody>
       </table>
       <br/>
-      <button id="todo-list-delete-button" type="click"> 
+      <button id="todo-list-delete-button" class="bottom-button" type="click"> 
         delete selected items
+      </button>
+      <button id="todo-list-sort-button" class="bottom-button" type="click"> 
+          sort items
       </button>
     </div>
   </div>
