@@ -88,7 +88,7 @@ table {
     color: red;
 }
 
-#todo-list-sort-button, #todo-list-delete-button {
+.bottom-button {
     display: none;
     color:black;
     border-radius: 10px;

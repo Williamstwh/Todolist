@@ -59,21 +59,25 @@ const dueHour = document.getElementById("hour");
 const dueMin = document.getElementById("min");
 const deleteButton = document.getElementById("todo-list-delete-button");
 const sortButton = document.getElementById("todo-list-sort-button");
+const selectAllButton = document.getElementById("todo-list-select-all-button");
+const unselectAllButton = document.getElementById("todo-list-unselect-all-button");
 const todoTable = document.getElementById("todo-table");
 const checkList = document.getElementsByClassName("checkbox");
 
 let todo_array = [];
 
-const toggle_sortButton_display = () => {
+const toggle_sortButton_selectAllButton_display = () => {
     //change display settings of sort button depending on whether todo_array is empty
     if (todo_array.length > 0) {
         sortButton.style.display = "inline";
+        selectAllButton.style.display = "inline";
     } else {
         sortButton.style.display = "none";
+        selectAllButton.style.display = "none";
     }
 }
 
-const toggle_deleteButton_display = () => {
+const toggle_deleteButton_unselectAllButton_display = () => {
     //change display settings of delete button depending on whether any of the checkboxes are checked
     let is_any_checked = false;
     for (let i = 0; i < todo_array.length; i++) {
@@ -81,8 +85,10 @@ const toggle_deleteButton_display = () => {
     } 
     if (is_any_checked) {
         deleteButton.style.display = "inline";
+        unselectAllButton.style.display = "inline";
     } else {
         deleteButton.style.display = "none";
+        unselectAllButton.style.display = "none";
     }
 }
 
@@ -134,8 +140,8 @@ const display_array = todo_arr => {
     }
 
     //toggle the display of sortButton and deleteButton
-    toggle_sortButton_display();
-    toggle_deleteButton_display();
+    toggle_sortButton_selectAllButton_display();
+    toggle_deleteButton_unselectAllButton_display();
 }
 
 const handleSubmit = event => {
@@ -272,7 +278,24 @@ const handleCheck = event => {
     }
 
     //toggle the display of deleteButton
-    toggle_deleteButton_display();
+    toggle_deleteButton_unselectAllButton_display();
 }
 
 todoTable.addEventListener("change", handleCheck);
+
+const handleSelectAll = (event, boo) => {
+    //prevent default
+    event.preventDefault();
+
+    //map true of all todoitems.checked in todo_array
+    for (let i = 0; i < todo_array.length; i++) {
+        todo_array[i].checked = boo;
+    }
+
+    //display array with all items checked
+    display_array(todo_array);
+}
+
+selectAllButton.addEventListener("click", event => handleSelectAll(event, true));
+
+unselectAllButton.addEventListener("click", event => handleSelectAll(event, false));
