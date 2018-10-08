@@ -45,6 +45,7 @@ class todoitem {
         this.due_day = due_day;
         this.due_hour = due_hour;
         this.due_min = due_min;
+        this.checked = false;  
     }
 }
 
@@ -60,6 +61,7 @@ const dueMin = document.getElementById("min");
 const deleteButton = document.getElementById("todo-list-delete-button");
 const sortButton = document.getElementById("todo-list-sort-button");
 const todoTable = document.getElementById("todo-table");
+const checkList = document.getElementsByClassName("checkbox");
 
 let todo_array = [];
 
@@ -87,6 +89,8 @@ const display_array = todo_arr => {
         //Create checkbox
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        checkbox.className = "checkbox";
+        checkbox.checked = todoitem.checked;
         
         //append text, due date and due time to table row
         new_row.appendChild(text);
@@ -151,20 +155,22 @@ const handleDelete = event => {
     //Prevent Default
     event.preventDefault();
 
-    //Select all table rows
-    const current_table_rows = document.getElementsByClassName("todo-table-rows");
-
-    //Delete all checked table rows
-    for (var i = 0; i < current_table_rows.length; i++) {
-        var checkbox = current_table_rows[i].childNodes[3];
-        if (checkbox.checked) {
-            current_table_rows[i].remove();
-            i--;
+    //Delete all todoitems that are checked from todo_array
+    for (var i = 0; i < todo_array.length; i++) {
+        if (todo_array[i].checked) {
+            delete todo_array[i];
         }
     }
+
+    //filter out undefined left from deleting todoitems
+    todo_array = todo_array.filter(x => x !== undefined);
+
+    //convert todo_array to table
+    display_array(todo_array);
 }
 
 deleteButton.addEventListener("click", handleDelete);
+
 
 const handleSort = event => {
     //Prevent Default
@@ -230,3 +236,15 @@ const handleSort = event => {
 }
 
 sortButton.addEventListener("click", handleSort);
+
+
+const handleCheck = event => {
+    event.preventDefault();
+
+    //Assign checked value of checkboxes to checked value in todo_Array
+    for (var i = 0; i < todo_array.length; i++) {
+        todo_array[i].checked = checkList[i].checked;
+    }
+}
+
+todoTable.addEventListener("change", handleCheck);
