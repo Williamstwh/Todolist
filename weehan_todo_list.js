@@ -164,7 +164,7 @@ const handleSubmit = event => {
     document.getElementById("error-message").innerHTML = "";
 
     //push new todoitem into todo_array
-    todo_array.push(todo);
+    todo_array.unshift(todo);
 
     //convert todo_array to table
     display_array(todo_array);
