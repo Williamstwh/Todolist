@@ -80,10 +80,15 @@ const toggle_sortButton_selectAllButton_display = () => {
 const toggle_deleteButton_unselectAllButton_display = () => {
     //change display settings of delete button depending on whether any of the checkboxes are checked
     let is_any_checked = false;
+    var number_of_checked = 0;
     for (let i = 0; i < todo_array.length; i++) {
         is_any_checked = is_any_checked || todo_array[i].checked;
+        if (todo_array[i].checked) {
+            number_of_checked++;
+        }
     } 
     if (is_any_checked) {
+        deleteButton.innerHTML = "delete selected items (" + number_of_checked + ")";
         deleteButton.style.display = "inline";
         unselectAllButton.style.display = "inline";
     } else {
