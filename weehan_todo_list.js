@@ -75,8 +75,8 @@ const toggle_sortButton_display = () => {
 
 const toggle_deleteButton_display = () => {
     //change display settings of delete button depending on whether any of the checkboxes are checked
-    var is_any_checked = false;
-    for (var i = 0; i < todo_array.length; i++) {
+    let is_any_checked = false;
+    for (let i = 0; i < todo_array.length; i++) {
         is_any_checked = is_any_checked || todo_array[i].checked;
     } 
     if (is_any_checked) {
@@ -129,7 +129,7 @@ const display_array = todo_arr => {
     }
 
     //map convert_todo_to_table_row to each element in todo_arr then add each element to the todoTable
-    for (var i = 0; i < todo_arr.length; i++) {
+    for (let i = 0; i < todo_arr.length; i++) {
         todoTable.appendChild(todo_arr.map(convert_todo_to_table_row)[i]);
     }
 
@@ -181,7 +181,7 @@ const handleDelete = event => {
     event.preventDefault();
 
     //Delete all todoitems that are checked from todo_array
-    for (var i = 0; i < todo_array.length; i++) {
+    for (let i = 0; i < todo_array.length; i++) {
         if (todo_array[i].checked) {
             delete todo_array[i];
         }
@@ -267,7 +267,7 @@ const handleCheck = event => {
     event.preventDefault();
 
     //Assign checked value of checkboxes to checked value in todo_Array
-    for (var i = 0; i < todo_array.length; i++) {
+    for (let i = 0; i < todo_array.length; i++) {
         todo_array[i].checked = checkList[i].checked;
     }
 
