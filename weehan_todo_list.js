@@ -1,4 +1,3 @@
-
 //Selecting date & time
 const daySelect = document.getElementById("day");
 const monthSelect = document.getElementById("month");
@@ -65,6 +64,28 @@ const checkList = document.getElementsByClassName("checkbox");
 
 let todo_array = [];
 
+const toggle_sortButton_display = () => {
+    //change display settings of sort button depending on whether todo_array is empty
+    if (todo_array.length > 0) {
+        sortButton.style.display = "inline";
+    } else {
+        sortButton.style.display = "none";
+    }
+}
+
+const toggle_deleteButton_display = () => {
+    //change display settings of delete button depending on whether any of the checkboxes are checked
+    var is_any_checked = false;
+    for (var i = 0; i < todo_array.length; i++) {
+        is_any_checked = is_any_checked || todo_array[i].checked;
+    } 
+    if (is_any_checked) {
+        deleteButton.style.display = "inline";
+    } else {
+        deleteButton.style.display = "none";
+    }
+}
+
 const display_array = todo_arr => {
     const convert_todo_to_table_row = todoitem => {
         //Create table row
@@ -111,6 +132,10 @@ const display_array = todo_arr => {
     for (var i = 0; i < todo_arr.length; i++) {
         todoTable.appendChild(todo_arr.map(convert_todo_to_table_row)[i]);
     }
+
+    //toggle the display of sortButton and deleteButton
+    toggle_sortButton_display();
+    toggle_deleteButton_display();
 }
 
 const handleSubmit = event => {
@@ -245,6 +270,9 @@ const handleCheck = event => {
     for (var i = 0; i < todo_array.length; i++) {
         todo_array[i].checked = checkList[i].checked;
     }
+
+    //toggle the display of deleteButton
+    toggle_deleteButton_display();
 }
 
 todoTable.addEventListener("change", handleCheck);
